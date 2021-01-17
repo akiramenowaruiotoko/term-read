@@ -4,26 +4,27 @@
 
 <div class="row my-4">
   <div class="col-md-8">
+    {% if keyword %}
+      <h4 class="mb-4"> 「{{ keyword }}の検索結果」 </h4>
+    {% endif %}
     {% for post in post_data %}
       <div class="card mb-4">
         <div class="card-body">
           <h2 class="card-title">{{ post.term }}</h2>
           <p class="card-text">{{ post.content|truncatechars:100 }}</p>
-          <div class="btn btn-warning">詳細</div>
         </div>
         <div class="card-footer text-muted">
+          <a href="{% url 'post_detail' post.id %}" class="btn btn-warning">詳細 </a>
           {{ post.created|date }} by {{ post.author }}
         </div>
-          <a href="{% url 'post_detail' post.id %}" class="stretched-link"></a>
       </div>
     {% endfor %}
   </div>
 
   <div class="col-md-4">
     <div class="card">
-      <h5 class="card-header">このチュートリアルについて</h5>
+      <h5 class="card-header">チュートリアル</h5>
       <div class="card-body">
-        <p>ステップ１</p>
         <p class="mb-0">
           プログラミングで使用する用語の読み方を登録・検索するサイトです。
         </p>

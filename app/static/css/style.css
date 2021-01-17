@@ -11,6 +11,10 @@ body {
   min-height: 100vh;
 }
 
+.navbar-brand {
+  font-size: 40px;
+}
+
 main {
   flex: 1;
 }
@@ -53,4 +57,8 @@ main {
 
 .form-control:focus {
   box-shadow: none;
+}
+
+.card {
+  margin: 0, 50px;
 }
